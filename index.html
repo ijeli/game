@@ -1,0 +1,67 @@
+//word is randomly generated from wordbank
+//dashes for the word appear on screen for every letter in the word 
+
+//User picks a letter
+
+//User keeps track of wins, losses, guesses, show all guesses 
+
+//if user picks the wrong letter 
+    // user loses one life
+    // hangman gains one limb
+        //head, body, arm, arm, leg, leg (6)
+    //
+// 
+
+//if user picks correct letter  
+    //letter appears
+//
+
+//when user guess full word
+    //wins +1
+    //lives reset
+    //hangman reset
+    //new word picked
+//
+
+//if user does not get full word    
+    //all 6 limbs appear
+    //user loses
+    //lose meter +1
+    //new game begins
+//
+
+<!doctype html>
+<html>
+<head>
+    <title>GAME TIME</title>
+    <link type  "stylesheet" rel = "text.css" href = "assets/css/style.css"/>
+</head>
+
+<body>
+    <script src = "assets/javascript/game.js"></script>
+    <h1>Word Game</h1>
+
+    <div>
+        <h2>Wins:</h2> <div id="winGame"></div>
+        <h2>Losses</h2> <div id="lossesGame"></div>
+        <h2>Lives Left</h2> <div id="livesMeter"></div>
+        <h2>Letters Guessed</h2> <div id="guessLetters"></div>
+
+        <h2>The Word</h2>
+
+        <div id = "theWord"></div>
+        <div id = "theDash"></div>
+        
+    </div>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
