@@ -44,6 +44,10 @@ var correct = 0;
 
 var wordBank = ["head", "foot", "hand", "finger", "leg" ];
 var dashBank = ["____", "______", "___"];
+var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h",
+    "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s",
+    "t", "u", "v", "w", "x", "y", "z"
+];
 
 
 var word = document.getElementById("theWord");
@@ -202,11 +206,13 @@ document.onkeypress = function userInput (event) {
 
     myGuesses = myGuesses + " " + event.key;
 
+
     if (currentWord === "leg") {
 
         if (event.key === "l") {
             var leg1Replace = document.getElementById("leg1");
             leg1Replace.innerHTML = "L";
+            usedLetters.push = "l";
             correct = correct + 1;
         }
 
@@ -230,9 +236,10 @@ document.onkeypress = function userInput (event) {
             wins = wins + 1;
             alert("LEG IS CORRECT!");
             dashScreen.innerHTML = "";
-            myGuesses = "";
             correct = 0;
             play ();
+            myGuesses = "";
+            
         };
 
     }
@@ -271,9 +278,11 @@ document.onkeypress = function userInput (event) {
             wins = wins + 1;
             alert("HAND IS CORRECT!");
             dashScreen.innerHTML = "";
-            myGuesses = "";
+            
             correct = 0;
             play ();
+
+            myGuesses = "";
         }
     }
 
@@ -311,9 +320,11 @@ document.onkeypress = function userInput (event) {
             wins = wins + 1;
             alert("HEAD IS CORRECT!");
             dashScreen.innerHTML = "";
-            myGuesses = "";
+            
             correct = 0;
             play ();
+
+            myGuesses = "";
         }
 
     }
@@ -346,9 +357,11 @@ document.onkeypress = function userInput (event) {
             wins = wins + 1;
             alert("FOOT IS CORRECT!");
             dashScreen.innerHTML = "";
-            myGuesses = "";
+            
             correct = 0;
             play ();
+
+            myGuesses = "";
         }
 
     }
@@ -399,9 +412,11 @@ document.onkeypress = function userInput (event) {
             wins = wins + 1;
             alert("FINGER IS CORRECT!");
             dashScreen.innerHTML = "";
-            myGuesses = "";
+            
             correct = 0;
             play ();
+
+            myGuesses = "";
         }
 
     }
@@ -424,9 +439,18 @@ document.onkeypress = function userInput (event) {
     if (lives == 0) {
         alert("lose")
         losess = losess + 1;
-        lives = 9;
+        lives = 6;
+        correct = 0
+        dashScreen.innerHTML = "";
+        play ();
+
         myGuesses = "";
     }
+
+    usedLetters = []
+
+
+
 
 }
 
@@ -437,11 +461,11 @@ console.log ("this " + correct);
     document.getElementById("WORD").onclick = function () {
 
         dashScreen.innerHTML = "";
-        myGuesses = "";
+        
         correct = 0;
         play ();
         
-        
+        myGuesses = "";
 
 
     }
@@ -449,9 +473,29 @@ console.log ("this " + correct);
     document.getElementById("reset").onclick = function () {
 
         dashScreen.innerHTML = "";
-        myGuesses = "";
+        
         correct = 0;
-        lives = 9;
+        lives = 6;
+        wins = 0;
+        losses = 0;
+        play ();
+
+        myGuesses = "";
+    }
+
+    document.getElementById("start").onclick = function () {
+        
+        var winsGame = document.getElementById("winGame");
+        winGame.innerHTML = wins;
+
+        var loseGame = document.getElementById("lossesGame");
+        loseGame.innerHTML = losess;
+
+        var livesMeter = document.getElementById("livesMeter");
+        livesMeter.innerHTML = lives;
+
+        var miGuesses = document.getElementById("guessLetters");
+        miGuesses.innerHTML = myGuesses;
         play ();
     }
 
