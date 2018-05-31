@@ -1,3 +1,37 @@
+//word is randomly generated from wordbank
+//dashes for the word appear on screen for every letter in the word 
+
+//User picks a letter
+
+//User keeps track of wins, losses, guesses, show all guesses 
+
+//if user picks the wrong letter 
+    // user loses one life
+    // hangman gains one limb
+        //head, body, arm, arm, leg, leg (6)
+    //
+// 
+
+//if user picks correct letter  
+    //letter appears
+//
+
+//when user guess full word
+    //wins +1
+    //lives reset
+    //hangman reset
+    //new word picked
+//
+
+//if user does not get full word    
+    //all 6 limbs appear
+    //user loses
+    //lose meter +1
+    //new game begins
+//
+
+
+
 window.onload = function () {
 
 
@@ -165,6 +199,7 @@ if (currentWord === "finger") {
 
 document.onkeypress = function userInput (event) {
 
+
     myGuesses = myGuesses + " " + event.key;
 
     if (currentWord === "leg") {
@@ -193,6 +228,11 @@ document.onkeypress = function userInput (event) {
 
         if (correct === 3) {
             wins = wins + 1;
+            alert("LEG IS CORRECT!");
+            dashScreen.innerHTML = "";
+            myGuesses = "";
+            correct = 0;
+            play ();
         };
 
     }
@@ -229,6 +269,11 @@ document.onkeypress = function userInput (event) {
 
         if (correct === 4) {
             wins = wins + 1;
+            alert("HAND IS CORRECT!");
+            dashScreen.innerHTML = "";
+            myGuesses = "";
+            correct = 0;
+            play ();
         }
     }
 
@@ -264,6 +309,11 @@ document.onkeypress = function userInput (event) {
 
         if (correct === 4) {
             wins = wins + 1;
+            alert("HEAD IS CORRECT!");
+            dashScreen.innerHTML = "";
+            myGuesses = "";
+            correct = 0;
+            play ();
         }
 
     }
@@ -294,6 +344,11 @@ document.onkeypress = function userInput (event) {
 
         if (correct === 4) {
             wins = wins + 1;
+            alert("FOOT IS CORRECT!");
+            dashScreen.innerHTML = "";
+            myGuesses = "";
+            correct = 0;
+            play ();
         }
 
     }
@@ -342,6 +397,11 @@ document.onkeypress = function userInput (event) {
 
         if (correct === 6) {
             wins = wins + 1;
+            alert("FINGER IS CORRECT!");
+            dashScreen.innerHTML = "";
+            myGuesses = "";
+            correct = 0;
+            play ();
         }
 
     }
@@ -370,7 +430,7 @@ document.onkeypress = function userInput (event) {
 
 }
 
-console.log ("this" + correct);
+console.log ("this " + correct);
 
 }
 
