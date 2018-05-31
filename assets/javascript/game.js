@@ -228,7 +228,7 @@ document.onkeypress = function userInput (event) {
             correct = correct + 1;
         }
 
-        else if (event.key !== "e" || "g" || "l") {
+        else if (event.key !== "e" || "g" || "l" ) {
             lives = lives - 1
         }
 
@@ -437,7 +437,7 @@ document.onkeypress = function userInput (event) {
 
 
     if (lives == 0) {
-        alert("lose")
+        alert("ROUND LOSS")
         losess = losess + 1;
         lives = 6;
         correct = 0
