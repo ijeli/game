@@ -6,6 +6,7 @@ var wins = 0;
 var losess = 0;
 var lives  = 6;
 var myGuesses = "";
+var correct = 0;
 
 var wordBank = ["head", "foot", "hand", "finger", "leg" ];
 var dashBank = ["____", "______", "___"];
@@ -17,9 +18,9 @@ var dashScreen = document.getElementById("theDash");
 
 
 
+play = function () {
 
-var currentWord = "leg"
-//wordBank[Math.floor(Math.random() * wordBank.length)];
+var currentWord = wordBank[Math.floor(Math.random() * wordBank.length)];
 var arrayCurrentWord = Array.from(currentWord);
 
 console.log(currentWord);
@@ -58,6 +59,7 @@ if (currentWord === "leg") {
     leg3.setAttribute ("id", "leg3");
     leg3.innerHTML = " _ ";
     dashScreen.appendChild(leg3);
+
 
 }
 
@@ -170,21 +172,29 @@ document.onkeypress = function userInput (event) {
         if (event.key === "l") {
             var leg1Replace = document.getElementById("leg1");
             leg1Replace.innerHTML = "L";
+            correct = correct + 1;
         }
 
         else if (event.key === "e") {
-            var leg1Replace = document.getElementById("leg2");
-            leg1Replace.innerHTML = "E";
+            var leg2Replace = document.getElementById("leg2");
+            leg2Replace.innerHTML = "E";
+            correct = correct + 1;
         }
 
         else if (event.key === "g") {
-            var leg1Replace = document.getElementById("leg3");
-            leg1Replace.innerHTML = "G";
+            var leg3Replace = document.getElementById("leg3");
+            leg3Replace.innerHTML = "G";
+            correct = correct + 1;
         }
 
         else if (event.key !== "e" || "g" || "l") {
             lives = lives - 1
         }
+
+        if (correct === 3) {
+            wins = wins + 1;
+        };
+
     }
 
     if (currentWord === "hand") {
@@ -192,25 +202,33 @@ document.onkeypress = function userInput (event) {
         if (event.key === "h") {
             var hand1Replace = document.getElementById ("hand1");
             hand1Replace.innerHTML = "H";
+            correct = correct + 1;
         }
 
         else if (event.key === "a") {
             var hand1Replace = document.getElementById ("hand2");
             hand1Replace.innerHTML = "A";
+            correct = correct + 1;
         }
         
         else if (event.key === "n") {
             var hand1Replace = document.getElementById ("hand3");
             hand1Replace.innerHTML = "N";
+            correct = correct + 1;
         }
 
         else if (event.key === "d") {
             var hand1Replace = document.getElementById ("hand4");
             hand1Replace.innerHTML = "D";
+            correct = correct + 1;
         }
 
         else if (event.key !== "h" || "a" || "n" || "d") {
             lives = lives - 1
+        }
+
+        if (correct === 4) {
+            wins = wins + 1;
         }
     }
 
@@ -219,25 +237,33 @@ document.onkeypress = function userInput (event) {
         if (event.key === "h") {
             var hand1Replace = document.getElementById ("head1");
             hand1Replace.innerHTML = "H";
+            correct = correct + 1;
         }
 
         else if (event.key === "e") {
             var hand1Replace = document.getElementById ("head2");
             hand1Replace.innerHTML = "E";
+            correct = correct + 1;
         }
         
         else if (event.key === "a") {
             var hand1Replace = document.getElementById ("head3");
             hand1Replace.innerHTML = "A";
+            correct = correct + 1;
         }
 
         else if (event.key === "d") {
             var hand1Replace = document.getElementById ("head4");
             hand1Replace.innerHTML = "D";
+            correct = correct + 1;
         } 
 
         else if (event.key !== "h" || "e" || "a" || "d") {
             lives = lives - 1
+        }
+
+        if (correct === 4) {
+            wins = wins + 1;
         }
 
     }
@@ -247,20 +273,27 @@ document.onkeypress = function userInput (event) {
         if (event.key === "f") {
             var hand1Replace = document.getElementById ("foot1");
             hand1Replace.innerHTML = "F";
+            correct = correct + 1;
         }
 
         else if (event.key === "o") {
             var hand1Replace = document.getElementById ("foot23");
             hand1Replace.innerHTML = "OO";
+            correct = correct + 2;
         }
         
         else if (event.key === "t") {
             var hand1Replace = document.getElementById ("foot4");
             hand1Replace.innerHTML = "T";
+            correct = correct + 1;
         }
         
         else if (event.key !== "f" || "o" || "t") {
             lives = lives - 1
+        }
+
+        if (correct === 4) {
+            wins = wins + 1;
         }
 
     }
@@ -270,35 +303,45 @@ document.onkeypress = function userInput (event) {
         if (event.key === "f") {
             var finger1Replacement = document.getElementById ("finger1");
             finger1Replacement.innerHTML = "F";
+            correct = correct + 1;
         }
 
         else if (event.key === "i") {
             var finger1Replacement = document.getElementById ("finger2");
             finger1Replacement.innerHTML = "I";
+            correct = correct + 1;
         }
         
         else if (event.key === "n") {
             var finger1Replacement = document.getElementById ("finger3");
             finger1Replacement.innerHTML = "N";
+            correct = correct + 1;
         }
 
         else if (event.key === "g") {
             var finger1Replacement = document.getElementById ("finger4");
             finger1Replacement.innerHTML = "G";
+            correct = correct + 1;
         }
 
         else if (event.key === "e") {
             var finger1Replacement = document.getElementById ("finger5");
             finger1Replacement.innerHTML = "E";
+            correct = correct + 1;
         }
 
         else if (event.key === "r") {
             var finger1Replacement = document.getElementById ("finger6");
             finger1Replacement.innerHTML = "R";
+            correct = correct + 1;
         }
 
         else if (event.key !== "f" || "i" || "n" || "g" || "e" || "r") {
             lives = lives - 1
+        }
+
+        if (correct === 6) {
+            wins = wins + 1;
         }
 
     }
@@ -320,14 +363,37 @@ document.onkeypress = function userInput (event) {
 
     if (lives == 0) {
         alert("lose")
-        var nextWord = wordBank[Math.floor(Math.random() * wordBank.length)];
         losess = losess + 1;
         lives = 9;
         myGuesses = "";
     }
+
 }
 
+console.log ("this" + correct);
 
+}
+
+    document.getElementById("WORD").onclick = function () {
+
+        dashScreen.innerHTML = "";
+        myGuesses = "";
+        correct = 0;
+        play ();
+        
+        
+
+
+    }
+
+    document.getElementById("reset").onclick = function () {
+
+        dashScreen.innerHTML = "";
+        myGuesses = "";
+        correct = 0;
+        lives = 9;
+        play ();
+    }
 
             
 
